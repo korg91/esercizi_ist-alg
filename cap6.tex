@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{longtable}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[scale=3]{ccicons}  % per le icone creative commons
+\usepackage{hyperref}  % per i link nel pdf
+\usepackage[rmargin=3.0cm,lmargin=3.0cm]{geometry}
+\usepackage{setspace}  % per l'interlinea
+\usepackage[italian]{babel}  % per sillabazione
+
+
+
+\theoremstyle{definition}
+\newtheorem{teo}{Teorema}[section]  % resetta la numerazione dei teoremi per ogni capitolo
+\newtheorem{defn}[teo]{Definizione}  % la numerazione delle definizioni dipende da quella dei teoremi
+\newtheorem{es}[teo]{Esempio}  % idem
+\newtheorem{oss}[teo]{Osservazione}  % idem
+\newtheorem{prop}[teo]{Proposizione}  % idem
+\newtheorem{lemma}[teo]{Lemma}  % idem
+\newtheorem{corollario}[teo]{Corollario}  % idem
+
+
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\aaa}{\textit{A}^{\star}}
+\DeclareMathOperator{\a01}{\{0,1\}^{\star}}
+\DeclareMathOperator{\ec}{\textit{EXPCOM}}
+\DeclareMathOperator{\ex}{\textit{EXP}}
+\DeclareMathOperator{\car}{char}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\gal}{Gal}
+
+
+\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+
+
+
+% Interlinea 1.5
+%\onehalfspacing  
+
+
+\begin{document}
+
+\noindent Andrea Gadotti
+
+\section*{Capitolo 6}
+\
+\\
+\noindent\textbf{Esercizio 1}\\
+\\
+Per tutto questo esercizio, indico con $K$ il campo di spezzamento del polinomio in questione e con $G$ il gruppo di Galois richiesto.
+\begin{itemize}
+\item[(a)] Il polinomio $x^3-x-1$ è irriducibile perché è di grado 3 e né 1 né -1 sono radici. Il suo discriminante è $\Delta=4-27=-23$, che non è un quadrato in $\mathbb{Q}$. Quindi $G \simeq S_3$ (cfr. pag. 270, Lang).
+\item[(b)] Osservo che $x^3-1=(x-1)(x^2+x+1)=(x-1)(x-\varepsilon)(x-\varepsilon^2)$ dove $\varepsilon$ è una radice terza dell'unità diversa da 1. Quindi $K$ è il campo di spezzamento del polinomio separabile $x^2+x+1$. Perciò $|G|=2$. È chiaro che i due omomorfismi sono $\sigma_1, \sigma_2$ dati da $\sigma_1=\id$ e $\sigma_2(\varepsilon)=\varepsilon^2$.
+\item[(c)] L'elemento $\varepsilon$ dell'esercizio (b) è $\varepsilon=\frac{-1 \pm \sqrt{-3}}{2}$. È evidente che $\varepsilon \not\in \mathbb{Q}(\sqrt{2})$, quindi anche in questo caso il polinomio $x^2+x+1$ è irriducibile e perciò $|G|=2$ e quindi $G$ è lo stesso del punto (b).
+\item[(d)] Guardando al punto (c), è immediato che $\varepsilon \in \mathbb{Q}(\sqrt{-3})$, quindi il polinomio si spezza completamente su di esso. Quindi $K=\mathbb{Q}(\sqrt{-3})$ e $G=\{\id\}$.
+\item[(e)] Si può vedere che il polinomio $x^3-x-1$ è irriducibile anche su $\mathbb{Q}(\sqrt{-23})$ (trovando esplicitamente le radici). Come abbiamo già osservato nel punto (a), il discriminante è $-23$, che è un quadrato in $\mathbb{Q}(\sqrt{-23})$. Quindi $G \simeq A_3$.
+\item[(f$'$)] $f(x)=x^4-5=(x-\alpha)(x+\alpha)(x-i\alpha)(x+i\alpha)$ con $\alpha=\sqrt[4]{5}$. Quindi il campo di spezzamento di $f$ è $\mathbb{Q}(i,\alpha)$, che è banalmente un'estensione di Galois di $\mathbb{Q}$ di grado 8. Osservo che esiste $\tau \in \gal(K/\mathbb{Q}(\alpha))$ determinato da $\tau(i)=-i$. Inoltre $\tau^2=\id$. D'altra parte, esiste anche $\sigma \in \gal(K/\mathbb{Q}(i))$ determinato da $\sigma(\alpha)=i\alpha$. Inoltre si può verificare facilmente che $\id, \sigma, \sigma^2, \sigma^3$ sono distinti e che $\sigma^4=\id$. Poiché $\tau$ non coincide con nessuno di questi quattro automorfismi, e osservando (si vede facilmente) che $\tau\sigma=\sigma^3\tau$, trovo che 
+$$G=<\tau, \sigma \mid \tau\sigma=\sigma^3\tau>$$
+ovvero $G \simeq D_4$, che infatti ha 8 elementi, come cercato.
+\item[(f$''$)] Sia $F:=\mathbb{Q}(\sqrt{5})$. È chiaro che $[K:F]=4$. Con riferimento al punto (f$'$), osservo che esiste $\tau \in \gal(K/F(\alpha))$ determinato da $\tau(i)=-i$. Inoltre $\tau^2=\id$. D'altra parte, esiste anche $\sigma \in \gal(K/F(i))$ determinato da $\sigma(\alpha)=-\alpha$, ed è chiaro che $\gal(K/F(i))=\{\id, \sigma\}$, in quanto ogni suo automorfismo deve mandare $\alpha^2=\sqrt{5}$ in $\alpha^2$.
+Si verifica facilmente che $\tau\sigma \in G$ e che $\tau\sigma \neq \tau, \sigma$. Quindi, poiché $|G|=4$, si trova $G=\{\id, \tau, \sigma, \tau\sigma\}$.
+\item[(m)]  $f(x)=x^n-t=(x-\alpha)(x-\varepsilon\alpha)(x-\varepsilon^2\alpha)...(x-\varepsilon^{n-1}\alpha)$ dove $\varepsilon$ è una radice $n$-esima primitiva di 1 e $\alpha^n=t$. Quindi $K=\mathbb{C}(t)(\alpha, \varepsilon)=\mathbb{C}(\alpha)$. Mostro che $f(x)$ è irriducibile: consideriamo l'anello $\mathbb{C}[t]$. Poiché $t$ è trascendente su $\mathbb{C}$, è chiaro che $(t)$ è massimale, e quindi primo, in $\mathbb{C}[t]$. Quindi, per il criterio di Eisenstein, $f(x)$ è irriducibile su $\mathbb{C}[t]$. Per il lemma di Gauss, $f(x)$ è irriducibile anche sul suo campo delle frazioni, ovvero su $\mathbb{C}(t)$.\\
+Quindi $|G|=n$, ed è chiaro quindi che $G=\langle \sigma \rangle$ dove $\sigma(\alpha)=\varepsilon\alpha$ (e quindi $\sigma^n=\id$).
+\item[(n)] $f(x)=x^4-t=(x-\alpha)(x-i\alpha)(x+\alpha)(x+i\alpha)$, dove $\alpha^4=t$. Quindi $K=\mathbb{R}(t)(i,\alpha)=\mathbb{R}(i,\alpha)$, che ha banalmente grado 4 su $\mathbb{C}(t)$ e quindi 8 su $\mathbb{R}(t)$. Ragionando come nel punto (f$'$), si trova che $G \simeq D_4$.
+\end{itemize}\ 
+\\
+\noindent\textbf{Esercizio 3}\\
+\\
+Grazie al lemma di Gauss, per verificare che i polinomi in questione sono irriducibili su $\mathbb{C}(t)$, è sufficiente verificare che lo siano su $\mathbb{C}[t]$. Ed essendo polinomi di terzo grado, si verifica facilmente che tutti i polinomi dell'esercizio sono irriducibili in quanto non hanno soluzioni in $\mathbb{C}[t]$ (basta guardare i divisori del termine noto). A questo punto, possiamo applicare come in precedenza il ragionamento che sfrutta il discriminante del polinomio. In particolare, si verifica subito che per tutti i polinomi dell'esercizio, tranne l'ultimo, il discriminante non è un quadrato in $\mathbb{C}(t)$. Calcoliamo ora il discriminante dell'ultimo polinomio $x^3+t^2x-t^3$:
+$$\Delta=-4(t^2)^3-27(-t^3)^2=-31t^6$$
+che è il quadrato di $i\sqrt{31}t^3 \in \mathbb{C}(t)$.
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
