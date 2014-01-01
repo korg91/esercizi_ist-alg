@@ -287,7 +287,49 @@ e quindi $\frac{1}{\pi} \not\in R$.
 
 \begin{itemize}
 \item[a)] Sia $y \in K$. Poiché $y \in F(x)$, si ha che $y=\frac{f(x)}{g(x)}$ per qualche $f, g \in F[t]$. È chiaro che $f(t)-g(t) y=f(t)-g(t) \frac{f(x)}{g(x)} \in K[t]$ ha $x$ come radice.
-\item[b)] Sia $p(t)=f(t)-g(t) y=f(t)-g(t) \frac{f(x)}{g(x)} \in F(y)[t]$. È chiaro che $p(t)$ ha $x$ come radice e $\deg p=\max(\deg f, \deg g)$. RESTA DA MOSTRARE CHE È IRRIDUCIBILE
+\item[b)] Sia $p(t)=f(t)-g(t) y=f(t)-g(t) \frac{f(x)}{g(x)} \in F(y)[t]$. È chiaro che $p(t)$ ha $x$ come radice e $\deg p=\max(\deg f, \deg g)$. Vogliamo mostrare che $p(t)$ è irriducibile. Iniziamo enunciando il seguente:
+
+\begin{lemma}
+Siano $f,g \in F[t]$ coprimi. Siano $P_n \in F[t]$ polinomi di grado strettamente minore di $m := \max(\deg(f), \deg(g))$. Se 
+$$\sum_{n=0}^N P_n f^n g^{N-n} = 0$$ 
+per qualche $N \in \mathbb{N}$, allora $P_n=0$ per ogni $n$.
+\end{lemma}
+\begin{proof}
+Assumiamo senza perdità di generalità che $\deg(g) = m$. Allora $g$ divide $\sum_{n=0}^{N-1} P_n f^n g^{N-n}$, perciò divide anche $P_N f^N$. Per coprimalità, abbiamo che $g$ divide $P_N$, Ma dall'ipotesi sul grado dei $P_n$ segue che $P_N=0$. Otteniamo quindi che $\sum_{n=0}^{N-1} P_n f^n g^{(N-1)-n} = 0$ e si prosegue per induzione.
+\end{proof}
+
+Sia ora $y = \frac{f(x)}{g(x)}$, con $f$ e $g$ coprimi in $F[t]$. Vogliamo mostrare che il polinomio minimo di $x$ in $F(y)$ ha grado $m = \max(\deg(f), \deg(g))$. Sia $p$ un polinomio in $F(y)[t]$, tale che $p(x) = 0$. Scriviamo $p(t) = \sum_{k=0}^r a_k t^k$, con $a_k \in F(y)$ e supponiamo $r < m$. Possiamo scrivere $a_k = \frac{P_{k}(y)}{Q_{k}(y)}$, con $P_{k}, Q_{k} \in F[t]$. Vale allora
+
+$$\sum_{k=0}^r \frac{P_{k}(y)}{Q_{k}(y)} x^k = 0$$
+
+Quindi otteniamo
+
+$$\sum_{k=0}^r P_{k}(y) \prod_{k' \neq k} Q_{k'} (y) x^k = 0,$$
+
+che riscriviamo come
+$$\sum_{k=0}^r \widetilde{P_{k}(y)} x^k = 0,$$
+
+dove $\widetilde{P_{k}} := P_{k}(y) \prod_{k' \neq k} Q_{k'} (y)$.
+
+Se definiamo adesso $\widetilde{P_{k}} =: \sum_l a_{kl} t^l \in F[t]$, otteniamo 
+
+$$
+\sum_{k=0}^r \sum_l a_{kl} \frac{f(x)^l}{g(x)^l} x^k = 0.
+$$
+
+Moltiplichiamo ora tutto per $g(x)^L$ con $L$ abbastanza grande. Troviamo
+
+$$
+\sum_{k=0}^r \sum_l a_{kl} f(x)^l g(x)^{L - l} x^k = 0,
+$$ 
+
+Che possiamo riscrivere come
+
+$$
+\sum_{l} (\sum_{k= 0}^r a_{kl} x^k) f(x)^l g(x)^{L-l} = 0.
+$$
+
+Grazie al lemma (e alla trascendenza di $x$), tutti gli $a_{kl}$ sono 0. Quindi anche gli $\widetilde{P_{k}}$ sono 0 e si vede subito che anche tutti gli $a_k$ sono 0. In conclusione, $p$ è il polinomio nullo, e questo conclude la dimostrazione.
 \end{itemize}
 
 
